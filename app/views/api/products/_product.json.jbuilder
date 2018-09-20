@@ -1,12 +1,16 @@
 json.id product.id
 json.name product.name
 json.price product.price
-json.image_url product.image_url
 json.description product.description
 json.discounted product.discounted
 json.tax product.tax
 json.total product.total
-
+json.supplier product.supplier
+json.image product.image
+json.current_user current_user
+json.categories product.categories
+json.categories product.category_names
+ # json.order order
 json.formatted do
   json.discounted(product.price)
   json.tax(product.tax)

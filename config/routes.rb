@@ -23,5 +23,13 @@ Rails.application.routes.draw do
 
     delete "products/:id" => "products#destroy"
 
-  end
+    post "/users" => "users#create"
+
+    post "/sessions" => "sessions#create"
+
+   post "/orders" => "orders#create"
+ 
+ post "/carted_products" => "carted_products#create"
+
+ end
 end

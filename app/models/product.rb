@@ -1,4 +1,19 @@
 class Product < ApplicationRecord
+
+  #finds a Supplier who's id matches the products foreign key
+  #   Supplier.find_by(id: supplier_id)
+   has_many :carted_products
+   has_many :orders, through: :carted_products
+   
+   has_many :categories, through: :category_products
+  # end
+  def category_names
+    categories.map{|category|category.name}
+  end
+
+    belongs_to :supplier #association methods
+   has_many :images
+
   validates :name, uniqueness:true
   validates :name, presence:true
   validates :name, length: {maximum: 40}
@@ -6,8 +21,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   
   validates :price, numericality: {greater_than: 0}
-  
-  validates :image_url, presence:true
   
   validates :description, length: {in: 6...500}
 
@@ -30,6 +43,5 @@ class Product < ApplicationRecord
   def total 
     price + tax
  end
-
 end
 
