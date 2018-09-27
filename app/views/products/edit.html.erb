@@ -1,0 +1,22 @@
+<h3> Edit Products</h3>
+
+<form action="/products/<%= @product.id %>" method="post">
+  <input type = "hidden" name="_method" value="patch"/>
+  <div>
+
+    Name: <input type="text" value="<%= @product.name %>" >
+  </div>
+  <div>
+     Price: <input type = "text" value ="<%= @product.price %>">
+
+     <div>
+
+     description: <input type = "text" value ="<%= @product.description %>"> 
+     </div>
+     <input type="submit" value="Edit Product">
+
+   </form>
+
+   <div>
+    <a href="/products/<%= @product.id %>" data-method="delete">Delete Product </a>
+   </div>

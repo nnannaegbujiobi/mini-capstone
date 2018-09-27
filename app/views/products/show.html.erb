@@ -2,4 +2,7 @@
   <h2><%= @product.name %></h2>
   <h3><%= @product.price%></h3>
   <h4><%= @product.description%></h4>
-  <a href= "/product" >All Products</a>
+  <a href="/products/<%= @product.id %>"</a>
+  <a href= "/products" >All Products</a>
+  
+  <a href="/products/<%= @product.id %>">Delete Product</a>
