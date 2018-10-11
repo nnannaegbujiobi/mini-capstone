@@ -3,6 +3,6 @@
 json.array! @product.each do
  json.id product.id
  json.name prodcut.name
- json.image_url .product.image_url
+ # json.image .product.image
  json.description .product.description
 end
