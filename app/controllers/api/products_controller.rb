@@ -1,5 +1,5 @@
 class Api::ProductsController < ApplicationController
-before_action :authenticate_admin , except: [:index, :show]
+before_action :authenticate_user, except: [:index, :show]
 
 
 def index
@@ -32,12 +32,13 @@ def create
     name: params[:name],
     price: params[:price],
     description: params[:description],
+    supplier_id: params[:supplier_id]
    )
   
   if @product.save #happy path
   render "show.json.jbuilder"
   else #sad path
-    render json: {errors: @product.errors.full_message}, status: :unprocessable_entity
+    render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
  end
 end
  
